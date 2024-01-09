@@ -19,6 +19,7 @@ module.exports = {
       },
       backgroundImage: {
         'grad': 'linear-gradient(220deg, #8910a7 0%, #4349c5 100%)',
+        'cart': 'linear-gradient(220deg, #8910a705 0%, #4349c514 100%)',
         'hovergrad': 'linear-gradient(220deg, #4349c5 0%, #b113d8 100%)'
       },
       backgroundColor: {

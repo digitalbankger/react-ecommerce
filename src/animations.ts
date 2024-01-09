@@ -16,6 +16,15 @@ export interface AnimationVariants extends Variants {
   };
 }
 
+export const animateInView = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+}
+
 export const inLeftMoving: AnimationVariants = {
   hidden: {
     x: -100,

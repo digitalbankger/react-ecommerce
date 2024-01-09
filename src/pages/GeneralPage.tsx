@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, useTransform, useViewportScroll } from 'framer-motion'
 import { Accordion, AccordionItem } from '../components/Accordeon'
-import { inLeftMoving, inDownMoving, miniInDownMoving, pulseAnimation } from '../animations'
+import { animateInView, inLeftMoving, inDownMoving, miniInDownMoving, pulseAnimation } from '../animations'
 import { Link, useNavigate } from 'react-router-dom'
 
 
@@ -53,6 +53,8 @@ export function GeneralPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{once: true}}
+            variants={animateInView}
+            transition={{ duration: 0.8 }}
         >
             <div 
                 className='container flex flex-md-row items-center relative'
@@ -178,10 +180,10 @@ export function GeneralPage() {
                             transition={{ duration: 1.8 }}
                         >
                             <img 
-                                src="./assets/img/saas-3/nom1.png"
+                                src="./assets/img/saas-3/nom5.png"
                                 width={400}
                             />
-                                <p className='text-black-600 tracking-[0.8px] font-exo text-xl font-medium leading-tight mt-5 mb-3'>Карта номиналом 1$</p>
+                                <p className='text-black-600 tracking-[0.8px] font-exo text-xl font-medium leading-tight mt-5 mb-3'>Карта номиналом 5$</p>
                         </motion.div>
                         <motion.div 
                             variants={inLeftMoving}
@@ -189,10 +191,10 @@ export function GeneralPage() {
                             transition={{ duration: 1.2 }}
                         >
                             <img 
-                                src="./assets/img/saas-3/nom1.png"
+                                src="./assets/img/saas-3/nom10.png"
                                 width={400}
                             />
-                            <p className='text-black-600 tracking-[0.8px] font-exo text-xl font-medium leading-tight mt-5 mb-3'>Карта номиналом 1$</p>
+                            <p className='text-black-600 tracking-[0.8px] font-exo text-xl font-medium leading-tight mt-5 mb-3'>Карта номиналом 10$</p>
                         </motion.div>
                     </div>
                     <div className='w-100 flex justify-center mt-10'>

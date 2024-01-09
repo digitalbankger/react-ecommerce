@@ -7,7 +7,7 @@ interface ProductProps {
 }
 
 export function ShopItem({product}: ProductProps) {
-    const btnClasses = ['py-2 px-4 border font-exo text-white rounded-[8px] bg-grad']
+    const btnClasses = ['flex flex-row items-center gap-3 justify-center py-2 px-4 border font-exo text-white rounded-[8px] bg-grad']
 
     const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShopCart()
     const quantity = getItemQuantity(product.id)
@@ -37,7 +37,10 @@ export function ShopItem({product}: ProductProps) {
                         className={btnClasses.join(' ')}
                         onClick = {() => increaseCartQuantity(product.id, product.name, product.price, product.img)}
                     >
-                        + Добавить в корзину
+                        <img 
+                            src='./assets/svg/shop-cart.svg' 
+                            width={20} 
+                        /> Добавить в корзину
                     </button>
                 ) : (
                     <div className='flex flex-row justify-between items-center'>

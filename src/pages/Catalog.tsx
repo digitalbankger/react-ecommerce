@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { products } from "../data/products";
-import { ShopItem } from "../components/ShopItem";
+import React, { useState } from "react"
+import { products } from "../data/products"
+import { ShopItem } from "../components/ShopItem"
+import { animateInView } from '../animations'
+import { motion } from "framer-motion";
 
 export function Catalog() {
   const [sortOrder, setSortOrder] = useState("desc");
@@ -18,7 +20,13 @@ export function Catalog() {
   };
 
   return (
-    <div className='section flex justify-center bg-center bg-cover py-20'>
+    <motion.div 
+      className='section flex justify-center bg-center bg-cover py-20'
+      initial="hidden"
+      whileInView="visible"
+      variants={animateInView}
+      transition={{ duration: 0.8 }}
+    >
       <div className="container flex flex-col item">
         <div className="flex justify-between mt-14 mb-14">
             <h2 className="font-exo text-black font-semibold text-4xl">Каталог карт</h2>
@@ -43,6 +51,6 @@ export function Catalog() {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

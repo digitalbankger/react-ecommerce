@@ -5,7 +5,7 @@ import { ShopCart } from './ShopCart';
 
 export function Navigation() {
     const location = useLocation();
-    const coloredRoutes = ['/catalog', '/card'];
+    const coloredRoutes = ['/catalog', '/cart', '/checkout'];
     const isColoredRoute = coloredRoutes.includes(location.pathname);
     const [isSticky, setSticky] = useState(false);
     const { openCart, closeCart, isOpen, cartQuantity } = useShopCart()

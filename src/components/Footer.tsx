@@ -129,7 +129,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="w-2/3 mt-16 grid grid-cols-3 gap-8 xl:col-span-3 xl:mt-0">
+          <div className="w-2/3 mt-10 sm:mt-0 grid grid-cols-3 gap-8 xl:col-span-3 xl:mt-0">
             <div className="md:grid md:grid-cols-1 md:gap-8">
                 <div className="mt-10 md:mt-0">
                     <h3 className="text-slate-700 tracking-[0.4px] font-exo text-xl font-medium leading-normal text-white">На праздник</h3>

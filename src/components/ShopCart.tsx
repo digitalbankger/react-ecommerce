@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useShopCart } from "../context/Catalog-context";
 import { inRightMovingNoOp } from '../animations';
 import { motion, AnimatePresence } from "framer-motion";
-import { ShopItem } from "./ShopItem";
 import { CartItem } from "./CartItem";
-import { products } from "../data/products";
+import { useNavigate } from 'react-router-dom'
 
 interface CartProps {
   onClose: () => void;
@@ -12,23 +11,26 @@ interface CartProps {
 
 export function ShopCart({ onClose }: CartProps) {
   const { cartQuantity, cartItems } = useShopCart();
-  console.log(cartItems);
+
+  const navigate = useNavigate();
+  const handleLocCart = () => {
+    onClose()
+    navigate('/cart');
+  };
 
   return (
     <>
         <div
             className="fixed bg-black/50 top-0 right-0 left-0 bottom-0"
-            onClick={() => {
-              onClose();
-            }}
+            onClick={() => setTimeout(onClose, 500)}
         />
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
         <motion.div
             className='absolute w-[500px] h-[100vh] bg-white p-5 right-0 top-0'
             transition={{ duration: 0.5 }}
             initial={{ x: 100 }}
             animate={{ x: 0 }}
-            exit={{ x: 100 }}
+            exit={{ x: -100 }}
         >
         {cartQuantity <= 0 ? (
             <div className='flex flex-col items-center'>
@@ -60,7 +62,12 @@ export function ShopCart({ onClose }: CartProps) {
                             }, 0)} руб.
                         </span>
                     </div>
-                    <button className="rounded-[8px] py-4 px-10 text-lg tracking-[0.5px] bg-grad text-white font-exo mt-4">Оформить заказ</button>
+                    <button 
+                        className="rounded-[8px] py-4 px-10 text-lg tracking-[0.5px] bg-grad text-white font-exo mt-4"
+                        onClick={handleLocCart}
+                    >
+                        Оформить заказ
+                    </button>
                 </div>
             </div>
         )}
